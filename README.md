@@ -1,16 +1,30 @@
 # trove_app_challenge
 
-A new Flutter project.
+Introduction
 
-## Getting Started
+This project is the implementation of the Trove Engineering Challenge.
 
-This project is a starting point for a Flutter application.
+Requirements
 
-A few resources to get you started if this is your first Flutter project:
+- Create an account on your service - 10 points
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- Perform basic operations on his account such as updating his personal information and
+changing his password - 10 points
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Pull his portfolio positions - 5 points
+
+- Get his portfolio value - 5 points
+
+- Take a loan of up to 60% loan against his total portfolio value over period of 6 - 12
+months, period should be decided by Ope - 10 points
+
+- View his active loan and balance - 5 points
+
+- View or get a prorated payment schedule over the loan period - 10 points
+
+- Payback his loan through any payment providers, please note using payment provider
+test bed is perfectly acceptable provided it works end to end - 20 point
+
+
+
+Implementation
