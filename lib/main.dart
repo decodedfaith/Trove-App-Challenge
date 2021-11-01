@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:trove_app_challenge/ui/view/home/home_view.dart';
-import 'package:trove_app_challenge/ui/view/home/home_viewmodel.dart';
+import 'package:stacked_services/stacked_services.dart';
+import 'package:trove_app_challenge/app/app.locator.dart';
+import 'package:trove_app_challenge/app/app.router.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setupLocator();
   runApp(const MyApp());
 }
 
@@ -13,11 +16,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
+      navigatorKey: StackedService.navigatorKey,
+      onGenerateRoute: StackedRouter().onGenerateRoute,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeView(),
+      initialRoute: Routes.splashScreenView,
     );
   }
 }

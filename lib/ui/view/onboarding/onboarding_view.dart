@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:trove_app_challenge/ui/shared/widgets/long_button.dart';
-import 'package:trove_app_challenge/ui/view/login/login_viewmodel.dart';
+import 'package:trove_app_challenge/ui/view/onboarding/onboarding_viewmodel.dart';
 import 'package:trove_app_challenge/utilities/constants/app_strings.dart';
 import 'package:trove_app_challenge/utilities/constants/colors.dart';
-import 'package:trove_app_challenge/utilities/constants/sizes_helpers.dart';
 import 'package:trove_app_challenge/utilities/constants/ui_helpers.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({Key? key}) : super(key: key);
+class OnboardingView extends StatelessWidget {
+  const OnboardingView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<LoginViewModel>.reactive(
+    final size = MediaQuery.of(context).size;
+    return ViewModelBuilder<OnboardingViewModel>.reactive(
       builder: (context, model, child) => Scaffold(
         body: Container(
-          width: displayWidth(context),
-          height: displayHeight(context),
+          width: size.width,
+          height: size.height,
           decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage(loginScreen), fit: BoxFit.cover),
@@ -25,7 +25,7 @@ class LoginView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               LongButton(
-                onPressed: () {},
+                onPressed: model.navigateToCreateAccount,
                 label: create,
                 outlineColor: AppColors.blueColor,
                 labelColor: AppColors.whiteColor,
@@ -42,7 +42,7 @@ class LoginView extends StatelessWidget {
           ),
         ),
       ),
-      viewModelBuilder: () => LoginViewModel(),
+      viewModelBuilder: () => OnboardingViewModel(),
     );
   }
 }

@@ -14,12 +14,23 @@ dependencies:
 
   #state management
   stacked: ^2.2.7
+  stacked_services: ^0.8.15
+  logger: ^1.1.0
+  google_fonts: ^2.1.0
+  dio: ^4.0.1
+  shared_preferences: ^2.0.8
+  modal_progress_hud_nsn: ^0.1.0-nullsafety-1
+  pin_code_fields: ^7.3.0
+  firebase_auth: ^3.1.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^1.0.0
+  build_runner:
+  stacked_generator:
+
 
 
 # The following section is specific to Flutter.
@@ -27,7 +38,7 @@ flutter:
 
   uses-material-design: true
   assets:
-    - assets/
+    - assets/images/
 
   # fonts:
   #   - family: Schyler

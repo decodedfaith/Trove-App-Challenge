@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "878432223295",
+    "project_id": "trovechallenge-237d3",
+    "storage_bucket": "trovechallenge-237d3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:878432223295:android:24a0e6e5b71a250b3c788a",
+        "android_client_info": {
+          "package_name": "com.decodedfaith.troveChallenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "878432223295-s6cv0umslcscrladst5h3000jft5psuo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXBMrt_wuvLYhuMcTr614ZSd9PRhuWYwc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "878432223295-s6cv0umslcscrladst5h3000jft5psuo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
