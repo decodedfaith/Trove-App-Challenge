@@ -66,6 +66,7 @@ const String typeSearchStock = 'Type a stock symbol';
 const String myPortfolio = 'My Portfolio';
 
 //API Endpoints
+// ignore: todo
 //TODO change the endpoints to what youd be using witin the app
 const String verifyAcctEndpoint = 'account/verify-account';
 const String signUpEndpoint = '/users';

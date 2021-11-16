@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:trove_app_challenge/utilities/constants/colors.dart';
 import 'package:trove_app_challenge/utilities/constants/sizes_helpers.dart';
 import 'package:trove_app_challenge/utilities/constants/text_styles.dart';
-import 'package:trove_app_challenge/utilities/constants/ui_helpers.dart';
 
 class PortfolioColumnTile extends StatelessWidget {
   const PortfolioColumnTile({
@@ -17,7 +16,7 @@ class PortfolioColumnTile extends StatelessWidget {
   final dynamic pricePershare;
   final dynamic equityValue;
   final dynamic totalQuantity;
-  final color;
+  final dynamic color;
 
   @override
   Widget build(BuildContext context) {

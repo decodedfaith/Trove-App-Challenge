@@ -1,3 +1,5 @@
+// ignore_for_file: implementation_imports
+
 import 'package:dio/dio.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:trove_app_challenge/app/app.locator.dart';
@@ -69,18 +71,21 @@ class AppApi implements Api {
   @override
   Future<ApiResponse?> delete(String path,
       {Map<String, dynamic>? body, String? token}) {
+    // ignore: todo
     // TODO: implement delete
     throw UnimplementedError();
   }
 
   @override
   Failure handleApiError(DioError e) {
+    // ignore: todo
     // TODO: implement handleApiError
     throw UnimplementedError();
   }
 
   @override
   Future login({required String email, required String password, token}) {
+    // ignore: todo
     // TODO: implement login
     throw UnimplementedError();
   }
@@ -88,24 +93,28 @@ class AppApi implements Api {
   @override
   Future<ApiResponse?> patch(String path,
       {Map<String, dynamic>? body, String? token}) {
+    // ignore: todo
     // TODO: implement patch
     throw UnimplementedError();
   }
 
   @override
   sendGetRequest(endpoint) {
+    // ignore: todo
     // TODO: implement sendGetRequest
     throw UnimplementedError();
   }
 
   @override
   sendPatchRequest(body, endpoint, userId) {
+    // ignore: todo
     // TODO: implement sendPatchRequest
     throw UnimplementedError();
   }
 
   @override
   sendPostRequest(body, endpoint) {
+    // ignore: todo
     // TODO: implement sendPostRequest
     throw UnimplementedError();
   }
@@ -119,6 +128,7 @@ class AppApi implements Api {
       required String displayName,
       required String phoneNumber,
       required String token}) {
+    // ignore: todo
     // TODO: implement signUp
     throw UnimplementedError();
   }
@@ -126,6 +136,7 @@ class AppApi implements Api {
   @override
   Future uploadImage(File image,
       {required String token, required String pluginId}) {
+    // ignore: todo
     // TODO: implement uploadImage
     throw UnimplementedError();
   }

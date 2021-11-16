@@ -43,6 +43,7 @@ class PortfolioViewModel extends FormViewModel {
 
   @override
   void setFormStatus() {
+    // ignore: todo
     // TODO: implement setFormStatus
   }
 }

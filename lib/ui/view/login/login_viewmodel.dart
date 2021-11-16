@@ -12,7 +12,6 @@ import 'package:trove_app_challenge/ui/view/login/login_view.form.dart';
 
 class LoginViewModel extends FormViewModel {
   final _navigationService = locator<NavigationService>();
-  final _storageService = locator<SharedPreferenceLocalStorage>();
   final _snackbarService = locator<SnackbarService>();
   final _connectivityService = locator<ConnectivityService>();
   final storageService = locator<SharedPreferenceLocalStorage>();

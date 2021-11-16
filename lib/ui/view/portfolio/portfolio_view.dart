@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
-import 'package:trove_app_challenge/ui/shared/widgets/custome_textfield.dart';
 import 'package:trove_app_challenge/ui/shared/widgets/long_button.dart';
 import 'package:trove_app_challenge/ui/view/portfolio/portfolio_viewmodel.dart';
 import 'package:trove_app_challenge/ui/view/portfolio/widgets/custom_portfolio_column_tile.dart';
-import 'package:trove_app_challenge/ui/view/portfolio/widgets/custom_portfolio_tile.dart';
 import 'package:trove_app_challenge/utilities/constants/app_strings.dart';
 import 'package:trove_app_challenge/utilities/constants/colors.dart';
 import 'package:trove_app_challenge/utilities/constants/sizes_helpers.dart';
@@ -120,38 +118,36 @@ class PortfolioView extends StatelessWidget {
                           )
                         : Container(),
                     // UIHelper.verticalSpace16(context),
-                    Container(
-                      child: Column(
-                        children: [
-                          const Text('Portfolio Performance'),
-                          const Text(
-                              'YTD metrics not available for manual Portfolio entries,'),
-                          const Text('Net Account Value'),
-                          const Text('\$11,064.44'),
-                          Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Column(),
-                                  VerticalDivider(),
-                                  Column(),
-                                  VerticalDivider(),
-                                  Column()
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Column(),
-                                  VerticalDivider(),
-                                  Column(),
-                                  VerticalDivider(),
-                                  Column()
-                                ],
-                              )
-                            ],
-                          )
-                        ],
-                      ),
+                    Column(
+                      children: [
+                        const Text('Portfolio Performance'),
+                        const Text(
+                            'YTD metrics not available for manual Portfolio entries,'),
+                        const Text('Net Account Value'),
+                        const Text('\$11,064.44'),
+                        Column(
+                          children: [
+                            Row(
+                              children: [
+                                Column(),
+                                const VerticalDivider(),
+                                Column(),
+                                const VerticalDivider(),
+                                Column()
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Column(),
+                                const VerticalDivider(),
+                                Column(),
+                                const VerticalDivider(),
+                                Column()
+                              ],
+                            )
+                          ],
+                        )
+                      ],
                     ),
                     LongButton(onPressed: () {}, label: 'Take a loan')
                   ],
