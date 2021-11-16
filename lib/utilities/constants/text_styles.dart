@@ -28,6 +28,18 @@ class AppTextStyle {
     return displayWidth(context) * 0.0533;
   }
 
+  static double size24(BuildContext context) {
+    return displayWidth(context) * 0.064;
+  }
+
+  static double size28(BuildContext context) {
+    return displayWidth(context) * 0.0746;
+  }
+
+  static double size32(BuildContext context) {
+    return displayWidth(context) * 0.0853;
+  }
+
   static double size48(BuildContext context) {
     return displayWidth(context) * 0.128;
   }
@@ -59,20 +71,52 @@ class AppTextStyle {
     return _base(size14(context), _normalWeight, AppColors.textDark);
   }
 
+   static TextStyle darkGreyNormalSize16(BuildContext context) {
+    return _base(size16(context), _normalWeight, AppColors.textDark);
+  }
+
   static TextStyle blueNormalSize14(BuildContext context) {
     return _base(size14(context), _normalWeight, AppColors.blueColor);
   }
 
   static TextStyle whiteBoldSize16(BuildContext context) {
-    return _base(size14(context), _normalWeight, AppColors.blueColor);
+    return _base(size16(context), _boldWeight, AppColors.whiteColor);
+  }
+
+  static TextStyle whiteBoldSize24(BuildContext context) {
+    return _base(size24(context), _boldWeight, AppColors.whiteColor);
+  }
+
+  static TextStyle whiteBoldSize28(BuildContext context) {
+    return _base(size28(context), _boldWeight, AppColors.whiteColor);
   }
 
   static TextStyle blueNormalSize16(BuildContext context) {
-   return _base(size16(context), _normalWeight, AppColors.blueColor);
+    return _base(size16(context), _normalWeight, AppColors.blueColor);
+  }
+
+  static TextStyle greenNormalSize16(BuildContext context) {
+    return _base(size16(context), _normalWeight, AppColors.green);
   }
 
   static TextStyle darkGreyBoldSize20(BuildContext context) {
     return _base(size20(context), _boldWeight, AppColors.textDark);
+  }
+
+  static TextStyle darkGreyBoldSize24(BuildContext context) {
+    return _base(size24(context), _boldWeight, AppColors.textDark);
+  }
+
+  static TextStyle darkGreyBoldSize28(BuildContext context) {
+    return _base(size28(context), _boldWeight, AppColors.textDark);
+  }
+
+  static TextStyle darkGreyBoldSize32(BuildContext context) {
+    return _base(size32(context), _boldWeight, AppColors.textDark);
+  }
+
+  static TextStyle darkGreyBoldSize48(BuildContext context) {
+    return _base(size48(context), _boldWeight, AppColors.textDark);
   }
 
   static TextStyle darkGreyBoldSize16(BuildContext context) {
@@ -83,8 +127,10 @@ class AppTextStyle {
 
   //fontSizeWeight Textstyles
   static TextStyle normalSize20(BuildContext context) {
-  return _custom(size20(context), _normalWeightw500,);
-
+    return _custom(
+      size20(context),
+      _normalWeightw500,
+    );
   }
   //! End
 
@@ -105,7 +151,7 @@ class AppTextStyle {
       decoration: TextDecoration.underline,
       decorationColor: AppColors.blueColor,
       decorationStyle: TextDecorationStyle.solid,
-      decorationThickness: displayWidth(context) *0.0026,
+      decorationThickness: displayWidth(context) * 0.0026,
     );
   }
 
@@ -147,9 +193,6 @@ class AppTextStyle {
     double size,
     FontWeight? fontWeight,
   ) {
-    return GoogleFonts.lato(
-      fontSize: size, 
-      fontWeight: fontWeight
-    );
+    return GoogleFonts.lato(fontSize: size, fontWeight: fontWeight);
   }
 }

@@ -20,18 +20,26 @@ class SplashScreenView extends StatelessWidget {
             image: DecorationImage(
                 image: AssetImage(splashScreen), fit: BoxFit.cover),
           ),
-          child: Center(
-            child: Text(
-              trovelogo,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: displayWidth(context) * 0.0906,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
-                  wordSpacing: displayWidth(context) * 0.008,
-                  fontStyle: FontStyle.italic),
+          child: Stack(children: [
+            Center(
+              child: Text(
+                trove,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: displayWidth(context) * 0.0906,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                    wordSpacing: displayWidth(context) * 0.008,
+                    fontStyle: FontStyle.italic),
+              ),
             ),
-          ),
+            Center(
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(
+                    Colors.white.withOpacity(0.5)),
+              ),
+            )
+          ]),
         ),
       ),
     );

@@ -11,6 +11,9 @@ class UIHelper {
   static double _verticalSpace6(context){
     return displayHeight(context)*0.0073;
   }
+  static double _verticalSpace8(context){
+    return displayHeight(context)*0.0098;
+  }
   static double _verticalSpace10(context){
     return displayHeight(context)*0.0123;
   }
@@ -19,6 +22,9 @@ class UIHelper {
   }
   static double _verticalSpace24(context){
     return displayHeight(context)*0.0295;
+  }
+  static double _verticalSpace32(context){
+    return displayHeight(context)*0.0394;
   }
   static double _verticalSpace40(context){
     return displayHeight(context)*0.0492;
@@ -41,6 +47,10 @@ class UIHelper {
     return SizedBox(height: _verticalSpace6(context));
   }
 
+  static Widget verticalSpace8(context){
+    return SizedBox(height: _verticalSpace8(context));
+  }
+
   static Widget verticalSpace10(context){
     return SizedBox(height: _verticalSpace10(context));
   }
@@ -51,6 +61,10 @@ class UIHelper {
 
   static Widget verticalSpace24 (context) {
     return SizedBox(height: _verticalSpace24(context));
+  }
+
+  static Widget verticalSpace32 (context) {
+    return SizedBox(height: _verticalSpace32(context));
   }
 
   static Widget verticalSpace40 (context) {
@@ -70,7 +84,14 @@ class UIHelper {
   static Widget customHorizontalSpace(double value) => SizedBox(width: value);
 //
 
-  
+  static EdgeInsets bodyPadding (context){
+     return EdgeInsets.fromLTRB(
+                displayWidth(context) * 0.0526,
+                displayHeight(context) * 0.0246,
+                displayWidth(context) * 0.0526,
+                0,
+              );
+  }
   
 }
 

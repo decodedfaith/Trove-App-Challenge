@@ -17,7 +17,6 @@ class CustomTextField extends StatelessWidget {
   final TextInputType? keyboardType;
   final TextInputAction? inputAction;
   final TextEditingController? controller;
-
   final bool? autoCorrect;
   final bool? obscureText;
   final String? labelText;

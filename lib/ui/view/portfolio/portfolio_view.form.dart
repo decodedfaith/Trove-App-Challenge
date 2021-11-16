@@ -9,23 +9,23 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
-const String OtpValueKey = 'otp';
+const String StockSearchValueKey = 'stockSearch';
 
-mixin $OtpView on StatelessWidget {
-  final TextEditingController otpController = TextEditingController();
-  final FocusNode otpFocusNode = FocusNode();
+mixin $PortfolioView on StatelessWidget {
+  final TextEditingController stockSearchController = TextEditingController();
+  final FocusNode stockSearchFocusNode = FocusNode();
 
   /// Registers a listener on every generated controller that calls [model.setData()]
   /// with the latest textController values
   void listenToFormUpdated(FormViewModel model) {
-    otpController.addListener(() => _updateFormData(model));
+    stockSearchController.addListener(() => _updateFormData(model));
   }
 
   /// Updates the formData on the FormViewModel
   void _updateFormData(FormViewModel model) => model.setData(
         model.formValueMap
           ..addAll({
-            OtpValueKey: otpController.text,
+            StockSearchValueKey: stockSearchController.text,
           }),
       );
 
@@ -33,15 +33,15 @@ mixin $OtpView on StatelessWidget {
   void disposeForm() {
     // The dispose function for a TextEditingController sets all listeners to null
 
-    otpController.dispose();
-    otpFocusNode.dispose();
+    stockSearchController.dispose();
+    stockSearchFocusNode.dispose();
   }
 }
 
 extension ValueProperties on FormViewModel {
-  String? get otpValue => this.formValueMap[OtpValueKey];
+  String? get stockSearchValue => this.formValueMap[StockSearchValueKey];
 
-  bool get hasOtp => this.formValueMap.containsKey(OtpValueKey);
+  bool get hasStockSearch => this.formValueMap.containsKey(StockSearchValueKey);
 }
 
 extension Methods on FormViewModel {}

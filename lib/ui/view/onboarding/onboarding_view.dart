@@ -32,7 +32,7 @@ class OnboardingView extends StatelessWidget {
               ),
               UIHelper.verticalSpace24(context),
               LongButton(
-                onPressed: () {},
+                onPressed: model.navigateToSignIn,
                 label: login,
                 outlineColor: AppColors.whiteColor,
                 labelColor: AppColors.blueColor,

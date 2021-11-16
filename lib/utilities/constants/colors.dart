@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-
 //in use ECEBED
   static const Color blueColor = Color(0xFF1949D8);
   static const Color whiteColor = Color(0xFFFFFFFF);
@@ -9,6 +8,7 @@ class AppColors {
   static const Color hintTextColor = Color(0xFFE5E5E5);
   static const Color borderColor = Color(0xFFECEBED);
   static const Color redColor = Color(0xFFF40101);
+  static const Color purpleColor = Color(0xFFFF6091);
 
 //
 
@@ -22,7 +22,7 @@ class AppColors {
   static const Color lightGreen = Color.fromRGBO(0, 184, 124, 0.3);
   static const Color unreadMessageColor = Color(0xffB8003C);
   static const Color darkGreyColor = Color(0xFF424141);
-  static const Color paleGreen = Color(0xFF89D3BB);
+  static const Color green = Color(0xFF008000);
   static const Color lightYellow = Color(0xFFFFFFE8);
   static const Color inactiveGreyColor = Color(0xFFB0AFB0);
   static const Color blueTextColor = Color(0xFF2573F6);

@@ -8,11 +8,13 @@ class AuthenticationService {
     required String password,
   }) async {
     try {
-      var user = await _firebaseAuth.signInWithEmailAndPassword(
-          email: email, password: password);
-      return user != null;
-    } catch (e) {
-      return e;
+      await _firebaseAuth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return true;
+    } on FirebaseAuthException catch (e) {
+      return e.message;
     }
   }
 
@@ -22,8 +24,13 @@ class AuthenticationService {
       var authResult = await _firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
       return authResult.user != null;
-    } catch (e) {
-      return e;
+    } on FirebaseAuthException catch (e) {
+      return e.message;
     }
+  }
+
+  Future<bool> isUserLoggedIn() async {
+    var user = _firebaseAuth.currentUser;
+    return user != null;
   }
 }
