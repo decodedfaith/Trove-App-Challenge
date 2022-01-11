@@ -9,7 +9,6 @@
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
-
 import '../services/app_services/authentication_services.dart';
 import '../services/app_services/connectivity_service.dart';
 import '../services/app_services/firestore_service.dart';

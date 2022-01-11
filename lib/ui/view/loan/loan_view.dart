@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:trove_app_challenge/ui/view/loan/loan_viewmodel.dart';
+import 'package:trove_app_challenge/utilities/constants/ui_helpers.dart';
 
 class LoanView extends StatelessWidget {
  const LoanView({Key? key}) : super(key: key);
@@ -11,7 +12,10 @@ class LoanView extends StatelessWidget {
      builder: (context, model, child) => 
      Scaffold(
        body: SingleChildScrollView(
-         child: Container(),
+         child: Padding(
+           padding: UIHelper.bodyPadding(context),
+           child: Container(),
+         ),
         ),
      ),
      viewModelBuilder: () => LoanViewModel(),

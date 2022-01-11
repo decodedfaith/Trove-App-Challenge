@@ -36,7 +36,7 @@ class CreateAccountView extends StatelessWidget with $CreateAccountView {
         body: Center(
           child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.all(displayWidth(context) * 0.0426),
+              padding: UIHelper.bodyPadding(context),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

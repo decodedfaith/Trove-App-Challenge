@@ -5,3 +5,4 @@ enum SnackbarType {
   success,
   failure,
 }
+

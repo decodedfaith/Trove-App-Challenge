@@ -37,12 +37,7 @@ class LoginView extends StatelessWidget with $LoginView {
           resizeToAvoidBottomInset: false,
           body: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.fromLTRB(
-                displayWidth(context) * 0.0526,
-                displayHeight(context) * 0.0246,
-                displayWidth(context) * 0.0526,
-                0,
-              ),
+              padding: UIHelper.bodyPadding(context),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -119,7 +114,7 @@ class LoginView extends StatelessWidget with $LoginView {
                         onPressed: () async {
                           FocusScope.of(context).unfocus();
                           model.busy(true);
-                          await model.logInUser();
+                          await model.logInUserProcedure();
                         },
                         label: signIn,
                         labelColor: AppColors.blueTextColor,

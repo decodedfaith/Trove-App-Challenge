@@ -8,6 +8,7 @@ import 'package:trove_app_challenge/utilities/constants/colors.dart';
 
 class PortfolioViewModel extends FormViewModel {
   final _fireService = locator<FireService>();
+
   TroveDataDetails? details;
   bool? checkPortfolio;
   int totalEquityValue = 0;
@@ -16,23 +17,26 @@ class PortfolioViewModel extends FormViewModel {
     AppColors.blueColor,
     AppColors.blackColor,
     Colors.orangeAccent,
-    AppColors.lightGreen
+    AppColors.lightGreen,
   ];
 
-  getDetails() async {
-    await _fireService.getCategoriesCollectionFromFirebase().then((value) {
+  _getdetailsFromFireServiceInstance() async {
+    return await _fireService.getCategoriesCollectionFromFirebase().then((value) {
       details = _fireService.getCategories();
     });
+  }
+
+  getDetails() async {
+    await _getdetailsFromFireServiceInstance();
     getEquityValue();
     notifyListeners();
   }
 
   getEquityValue() {
-    for (Portfolio y in details!.portfolio) {
-      totalEquityValue = totalEquityValue +
-          int.parse(
-            y.equityValue.toString(),
-          );
+    for (Portfolio eachPortfolioInDetails in details!.portfolio) {
+      totalEquityValue += int.parse(
+        eachPortfolioInDetails.equityValue.toString(),
+      );
     }
   }
 

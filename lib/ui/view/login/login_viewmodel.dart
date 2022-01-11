@@ -18,9 +18,81 @@ class LoginViewModel extends FormViewModel {
   final _authenticationService = locator<AuthenticationService>();
 
   final log = getLogger('LogInViewModel');
-
   bool isLoading = false;
 
+  //local function calls
+  _showCustomSnackbar(message, time, {variant}) {
+    _snackbarService.showCustomSnackBar(
+      duration: time,
+      variant: variant ?? SnackbarType.failure,
+      message: message,
+    );
+  }
+
+  _loginWithEmailAndPassword() async {
+    return await _authenticationService.loginWithEmail(
+      email: emailValue!,
+      password: passwordValue!,
+    );
+  }
+
+  _setIsLoadingWhileLoggingIn() {
+    loading(true);
+    var result = _loginWithEmailAndPassword();
+    loading(false);
+    return result;
+  }
+
+  _isEmailOrPasswordNull() {
+    if (emailValue == null || passwordValue == null) {
+      loading(false);
+      _showCustomSnackbar(
+        fillAllFields,
+        const Duration(milliseconds: 1500),
+      );
+      return;
+    }
+  }
+
+  _checkIfConnectedToTheInterent() async {
+    var connected = await _connectivityService.checkConnection();
+    if (!connected) {
+      _showCustomSnackbar(
+        noInternet,
+        const Duration(milliseconds: 1500),
+      );
+      return;
+    }
+  }
+
+  _showLoginSnackbar(result) {
+    if (result) {
+      _showCustomSnackbar(
+        loggedIn,
+        const Duration(seconds: 3),
+        variant: SnackbarType.success,
+      );
+      navigateToPortfolio();
+    } else {
+      _showCustomSnackbar(
+        loginFailure,
+        const Duration(seconds: 3),
+      );
+    }
+  }
+
+  _isLoginSuccessful(result) {
+    if (result is bool) {
+      _showLoginSnackbar(result);
+    } else {
+      _showCustomSnackbar(
+        result,
+        const Duration(seconds: 3),
+      );
+    }
+  }
+
+  //Global function calls
   loading(status) {
     isLoading = status;
     notifyListeners();
@@ -38,57 +110,11 @@ class LoginViewModel extends FormViewModel {
     _navigationService.replaceWith(Routes.createAccountView);
   }
 
-  Future logInUser() async {
-    var connected = await _connectivityService.checkConnection();
-    if (!connected) {
-      _snackbarService.showCustomSnackBar(
-        message: noInternet,
-        variant: SnackbarType.failure,
-        duration: const Duration(milliseconds: 1500),
-      );
-      return;
-    }
-    loading(true);
-
-    if (emailValue == null || passwordValue == null) {
-      loading(false);
-      _snackbarService.showCustomSnackBar(
-        duration: const Duration(milliseconds: 1500),
-        variant: SnackbarType.failure,
-        message: fillAllFields,
-      );
-      return;
-    }
-
-    var result = await _authenticationService.loginWithEmail(
-      email: emailValue!,
-      password: passwordValue!,
-    );
-
-    loading(false);
-
-    if (result is bool) {
-      if (result) {
-        _snackbarService.showCustomSnackBar(
-          duration: const Duration(seconds: 3),
-          variant: SnackbarType.success,
-          message: loggedIn,
-        );
-        navigateToPortfolio();
-      } else {
-        _snackbarService.showCustomSnackBar(
-          duration: const Duration(seconds: 3),
-          variant: SnackbarType.failure,
-          message: loginFailure,
-        );
-      }
-    } else {
-      _snackbarService.showCustomSnackBar(
-        duration: const Duration(seconds: 3),
-        variant: SnackbarType.failure,
-        message: result,
-      );
-    }
+  Future logInUserProcedure() async {
+    _isEmailOrPasswordNull();
+    _checkIfConnectedToTheInterent();
+    var result = await _setIsLoadingWhileLoggingIn();
+    _isLoginSuccessful(result);
   }
 
   @override

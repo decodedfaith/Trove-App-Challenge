@@ -19,48 +19,30 @@ class CreateAccountViewModel extends FormViewModel {
   final _authenticationService = locator<AuthenticationService>();
   final _connectivityService = locator<ConnectivityService>();
 
+  bool isLoading = false;
+  bool checkBoxValue = false;
 
-  
   @override
   void setFormStatus() {}
 
-  bool isLoading = false;
-
-  bool checkBoxValue = false;
-
-  void loading(status) {
-    isLoading = status;
-    notifyListeners();
-  }
-
-  void updateValue(newValue) {
-    checkBoxValue = newValue;
-    notifyListeners();
-  }
-
-  void navigateToOtpView() => navigation.navigateTo(Routes.otpView);
-
-  void navigateToSignIn() => navigation.navigateTo(Routes.loginView);
-
-  validateAndCreateUser() {
-    _isThereInternetConnection();
-    _isCheckedBoxChecked();
-  }
-
-  //local function calls limitd to within the folder
-  _showCustomSnackbar(message, time) {
+  //local function calls limited to within the folder
+  _showCustomSnackbar(message, time, {variant}) {
     snackbar.showCustomSnackBar(
-      duration: time,
-      variant: SnackbarType.failure,
       message: message,
+      duration: time,
+      variant: variant ?? SnackbarType.failure,
     );
   }
 
-  _checkIfFieldsAreNullOrEmpty() {
-    if (emailValue == null ||
+  _getFieldValuesAsParam() {
+    return emailValue == null ||
         passwordValue == null ||
         emailValue == '' ||
-        passwordValue == '') {
+        passwordValue == '';
+  }
+
+  _checkIfFieldsAreNullOrEmpty() {
+    if (_getFieldValuesAsParam()) {
       loading(false);
       _showCustomSnackbar(
         fillAllFields,
@@ -75,6 +57,7 @@ class CreateAccountViewModel extends FormViewModel {
       _showCustomSnackbar(
         accountCreated,
         const Duration(seconds: 3),
+        variant: SnackbarType.success,
       );
       navigateToSignIn();
     } else {
@@ -127,5 +110,25 @@ class CreateAccountViewModel extends FormViewModel {
       );
       return;
     }
+  }
+
+  //Global function calls
+  void navigateToOtpView() => navigation.navigateTo(Routes.otpView);
+
+  void navigateToSignIn() => navigation.navigateTo(Routes.loginView);
+
+  void loading(status) {
+    isLoading = status;
+    notifyListeners();
+  }
+
+  void updateValue(newValue) {
+    checkBoxValue = newValue;
+    notifyListeners();
+  }
+
+  validateAndCreateUser() {
+    _isThereInternetConnection();
+    _isCheckedBoxChecked();
   }
 }
